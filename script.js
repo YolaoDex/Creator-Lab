@@ -137,6 +137,7 @@
   .card.gold::before{background:linear-gradient(135deg,#3ddc84,var(--blue));}
   .card.plan::before{background:linear-gradient(135deg,#ff3d81,var(--violet));}
   .card.sante::before{background:linear-gradient(135deg,var(--green),#22c1a8);}
+  .card.ecole::before{background:linear-gradient(135deg,#ffb84d,var(--blue));}
   .card-icon{
     width:46px; height:46px; border-radius:13px; margin-bottom:20px;
     display:flex; align-items:center; justify-content:center;
@@ -146,11 +147,13 @@
   .card.gold .card-icon{background:rgba(61,220,132,0.12); border-color:rgba(61,220,132,0.28);}
   .card.plan .card-icon{background:rgba(255,61,129,0.12); border-color:rgba(255,61,129,0.28);}
   .card.sante .card-icon{background:rgba(61,220,132,0.12); border-color:rgba(61,220,132,0.28);}
+  .card.ecole .card-icon{background:rgba(255,184,77,0.12); border-color:rgba(255,184,77,0.28);}
   .card-icon svg{width:22px; height:22px; stroke:var(--violet);}
   .card.warm .card-icon svg{stroke:var(--warm1);}
   .card.gold .card-icon svg{stroke:var(--green);}
   .card.plan .card-icon svg{stroke:var(--warm2);}
   .card.sante .card-icon svg{stroke:var(--green);}
+  .card.ecole .card-icon svg{stroke:#ffb84d;}
   .card h3{font-family:var(--font-display); font-size:19px; font-weight:600; margin:0 0 8px;}
   .card p{margin:0 0 20px; color:var(--text-muted); font-size:13.5px; line-height:1.55;}
   .card .go{
@@ -193,6 +196,8 @@
   .view-views article.guide .chapter-num{color:var(--warm1);}
   .view-sante article.guide .chapter-num{color:var(--green);}
   .view-sante article.guide .callout{border-left-color:var(--green); background:rgba(61,220,132,0.06);}
+  .view-ecole article.guide .chapter-num{color:#ffb84d;}
+  .view-ecole article.guide .callout{border-left-color:#ffb84d; background:rgba(255,184,77,0.07);}
   article.guide h2{
     font-family:var(--font-display); font-weight:600; font-size:25px; margin:0 0 16px; letter-spacing:-0.01em;
   }
@@ -439,6 +444,26 @@
     color:var(--warm2); border-color:rgba(255,61,129,0.18);
     animation:iconFloat3 68s linear infinite;
   }
+  .bg-icon.i-pen{
+    width:92px; height:92px; top:8%; right:22%;
+    color:var(--violet); border-color:rgba(124,92,252,0.18);
+    animation:iconFloat4 70s linear infinite;
+  }
+  .bg-icon.i-eye{
+    width:100px; height:100px; top:36%; left:2%;
+    color:var(--warm1); border-color:rgba(255,107,74,0.18);
+    animation:iconFloat5 78s linear infinite;
+  }
+  .bg-icon.i-link{
+    width:88px; height:88px; bottom:6%; right:24%;
+    color:var(--green); border-color:rgba(61,220,132,0.18);
+    animation:iconFloat6 66s linear infinite;
+  }
+  .bg-icon.i-cap{
+    width:100px; height:100px; top:70%; left:38%;
+    color:#ffb84d; border-color:rgba(255,184,77,0.18);
+    animation:iconFloat7 72s linear infinite;
+  }
   @keyframes iconFloat1{
     0%{ transform:translate(0,0) rotate(0deg); }
     20%{ transform:translate(38vw,10vh) rotate(8deg); }
@@ -462,6 +487,34 @@
     75%{ transform:translate(16vw,26vh) rotate(7deg); }
     100%{ transform:translate(0,0) rotate(0deg); }
   }
+  @keyframes iconFloat4{
+    0%{ transform:translate(0,0) rotate(0deg); }
+    30%{ transform:translate(-30vw,30vh) rotate(-6deg); }
+    55%{ transform:translate(-48vw,8vh) rotate(5deg); }
+    80%{ transform:translate(-20vw,-14vh) rotate(-4deg); }
+    100%{ transform:translate(0,0) rotate(0deg); }
+  }
+  @keyframes iconFloat5{
+    0%{ transform:translate(0,0) rotate(0deg); }
+    24%{ transform:translate(30vw,20vh) rotate(7deg); }
+    48%{ transform:translate(50vw,-10vh) rotate(-6deg); }
+    72%{ transform:translate(24vw,-34vh) rotate(4deg); }
+    100%{ transform:translate(0,0) rotate(0deg); }
+  }
+  @keyframes iconFloat6{
+    0%{ transform:translate(0,0) rotate(0deg); }
+    28%{ transform:translate(-24vw,-26vh) rotate(-5deg); }
+    52%{ transform:translate(-6vw,-48vh) rotate(6deg); }
+    76%{ transform:translate(18vw,-20vh) rotate(-7deg); }
+    100%{ transform:translate(0,0) rotate(0deg); }
+  }
+  @keyframes iconFloat7{
+    0%{ transform:translate(0,0) rotate(0deg); }
+    26%{ transform:translate(-22vw,18vh) rotate(6deg); }
+    50%{ transform:translate(-40vw,-6vh) rotate(-5deg); }
+    74%{ transform:translate(-14vw,-28vh) rotate(7deg); }
+    100%{ transform:translate(0,0) rotate(0deg); }
+  }
   @media (prefers-reduced-motion: reduce){
     .bg-icon{ animation:none; }
   }
@@ -482,6 +535,10 @@
     .bg-icon.i-video{ width:78px; height:78px; }
     .bg-icon.i-dumbbell{ width:70px; height:70px; }
     .bg-icon.i-calendar{ width:64px; height:64px; }
+    .bg-icon.i-pen{ width:60px; height:60px; }
+    .bg-icon.i-eye{ width:66px; height:66px; }
+    .bg-icon.i-link{ width:58px; height:58px; }
+    .bg-icon.i-cap{ width:66px; height:66px; }
   }
 </style>
 </head>
@@ -503,6 +560,22 @@
 
   <div class="bg-icon i-calendar">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+  </div>
+
+  <div class="bg-icon i-pen">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+  </div>
+
+  <div class="bg-icon i-eye">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg>
+  </div>
+
+  <div class="bg-icon i-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11.5 4.5"/><path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07L12.5 19.5"/></svg>
+  </div>
+
+  <div class="bg-icon i-cap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
   </div>
 </div>
 
@@ -543,7 +616,7 @@
     <div class="wrap">
       <div class="hero">
         <div class="eyebrow"><span class="dot"></span> Studio de création</div>
-        <h1 class="hero-title">Améliorez votre <span>chaîne YouTube</span>.</h1>
+        <h1 class="hero-title">Améliorez votre <span>chaîne YouTube</span> et votre quotidien.</h1>
         <p class="hero-sub">Choisissez un outil pour l'écriture, la stratégie de visibilité, l'organisation de votre temps ou les ressources de vos vidéos.</p>
       </div>
 
@@ -581,6 +654,13 @@
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/></svg></div>
           <h3>Prendre soin de son corps</h3>
           <p>Le guide complet pour bien manger, bien t'hydrater, bien dormir, protéger ton dos et bouger assez — pour tenir sur la durée.</p>
+          <span class="go">Ouvrir le guide <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </button>
+
+        <button class="card ecole btn-sound" data-view="ecole" type="button">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg></div>
+          <h3>Réussir à l'école</h3>
+          <p>Le guide complet pour avoir de bonnes notes et une bonne image auprès des profs, du primaire jusqu'à la fac.</p>
           <span class="go">Ouvrir le guide <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </button>
       </div>
@@ -1003,6 +1083,129 @@
     </div>
   </section>
 
+  <!-- ============ RÉUSSIR À L'ÉCOLE ============ -->
+  <section class="view view-ecole" id="view-ecole">
+    <div class="tool-header">
+      <button class="back-btn btn-sound" data-back type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Retour à l'accueil
+      </button>
+      <div class="tool-title-wrap">
+        <span class="tool-title">Réussir à l'école</span>
+      </div>
+    </div>
+    <div class="wrap-narrow">
+      <p class="tool-lead">Le guide complet pour avoir de bonnes notes, donner une bonne image de toi et bien t'entendre avec tes enseignants, du primaire jusqu'à la fac.</p>
+
+      <button class="copy-article-btn btn-sound" id="copyEcoleBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copier tout le guide
+      </button>
+
+      <nav class="toc">
+        <a href="#ecole-bases">Les bases</a>
+        <a href="#ecole-primaire">Primaire</a>
+        <a href="#ecole-college">Collège</a>
+        <a href="#ecole-lycee">Lycée</a>
+        <a href="#ecole-fac">Université / Fac</a>
+        <a href="#ecole-profs">Être bien vu des profs</a>
+      </nav>
+
+      <article class="guide" id="ecoleArticle">
+        <section id="ecole-bases">
+          <span class="chapter-num">CHAPITRE 01</span>
+          <h2>Les bases qui marchent à tous les niveaux</h2>
+          <p>Avant de parler de méthodes spécifiques à chaque niveau, il existe un socle d'habitudes qui fait une vraie différence sur les résultats scolaires, quel que soit l'âge ou l'établissement. Ce sont ces habitudes de fond, répétées chaque semaine, qui construisent la réussite sur la durée — bien plus que les révisions de dernière minute.</p>
+          <h3>Les habitudes qui font la différence</h3>
+          <ul>
+            <li><strong>Être régulier plutôt qu'intense.</strong> Travailler un peu chaque jour ancre mieux les connaissances que de tout réviser la veille d'un contrôle. Le cerveau retient mieux ce qui est répété dans le temps.</li>
+            <li><strong>Avoir un espace de travail dédié</strong>, rangé et sans distraction (téléphone loin, notifications coupées), pour que le cerveau associe cet endroit à la concentration.</li>
+            <li><strong>Noter ses devoirs et échéances</strong> dans un agenda ou une application, plutôt que de compter sur sa mémoire : cela évite le stress de dernière minute et les oublis.</li>
+            <li><strong>Se relire et se corriger soi-même</strong> avant de rendre un travail : la moitié des erreurs se voient simplement en relisant une seconde fois, à tête reposée.</li>
+            <li><strong>Demander de l'aide dès qu'un blocage apparaît</strong>, plutôt que d'attendre que l'écart se creuse. Un professeur, un camarade ou un parent peut débloquer une incompréhension en quelques minutes si elle est traitée tôt.</li>
+          </ul>
+          <div class="callout">La motivation ne précède pas toujours l'action : elle vient souvent après avoir commencé. Se mettre au travail même sans envie, ne serait-ce que cinq minutes, suffit souvent à enclencher la concentration.</div>
+        </section>
+
+        <section id="ecole-primaire">
+          <span class="chapter-num">CHAPITRE 02</span>
+          <h2>À l'école primaire</h2>
+          <p>À ce niveau, l'enjeu principal n'est pas encore la performance mais la construction d'habitudes solides : écouter, suivre des consignes, apprendre à apprendre. C'est aussi le moment où la relation avec la maîtresse ou le maître se construit, souvent pour plusieurs années avec la même personne.</p>
+          <h3>Ce qui aide vraiment</h3>
+          <ul>
+            <li><strong>Écouter activement en classe</strong> : regarder l'enseignant, répondre aux questions même si la réponse n'est pas sûre à 100 %, plutôt que de rester silencieux par peur de se tromper.</li>
+            <li><strong>Apprendre les leçons le jour même</strong> plutôt que d'attendre la veille du contrôle, car la mémoire d'un enfant retient mieux par petites doses répétées.</li>
+            <li><strong>Lire régulièrement</strong>, même quelques pages par jour : c'est l'un des meilleurs leviers pour progresser dans toutes les matières, pas seulement en français.</li>
+            <li><strong>Être poli et respectueux avec les adultes et les camarades</strong> : à cet âge, l'attitude générale compte souvent autant que les résultats aux yeux des enseignants.</li>
+            <li><strong>Ranger et prendre soin de ses affaires</strong> (cahiers, trousse, cartable) : cela montre du sérieux et évite le stress de chercher du matériel manquant.</li>
+          </ul>
+        </section>
+
+        <section id="ecole-college">
+          <span class="chapter-num">CHAPITRE 03</span>
+          <h2>Au collège</h2>
+          <p>Le collège marque un changement important : plusieurs professeurs, plus d'autonomie demandée, des notes qui commencent à compter davantage. C'est aussi la période où il faut apprendre à s'organiser seul, sans que quelqu'un ne le fasse à sa place.</p>
+          <h3>S'organiser et progresser</h3>
+          <ul>
+            <li><strong>Utiliser un cahier de textes ou une appli</strong> pour noter précisément ce qui est demandé pour chaque cours, matière par matière.</li>
+            <li><strong>Préparer son cartable la veille</strong> selon l'emploi du temps, pour ne rien oublier et commencer la journée sereinement.</li>
+            <li><strong>Participer en classe</strong>, même par de petites interventions : lever la main, poser une question, proposer une réponse. Cela montre à l'enseignant un engagement réel dans le cours.</li>
+            <li><strong>Anticiper les devoirs et contrôles</strong> en étalant les révisions sur plusieurs jours plutôt qu'en une seule soirée, surtout quand plusieurs évaluations tombent la même semaine.</li>
+            <li><strong>Gérer les débuts de vie sociale et de réseaux sociaux avec mesure</strong>, pour que le temps d'écran ne vienne pas grignoter celui du travail scolaire et du sommeil.</li>
+          </ul>
+          <div class="callout">C'est souvent au collège que les premières mauvaises habitudes de gestion du temps s'installent, ou au contraire que se construisent les bonnes méthodes qui serviront jusqu'à la fac. C'est le bon moment pour poser des bases solides.</div>
+        </section>
+
+        <section id="ecole-lycee">
+          <span class="chapter-num">CHAPITRE 04</span>
+          <h2>Au lycée</h2>
+          <p>Le rythme s'accélère, le programme se densifie, et les résultats commencent à compter pour l'orientation post-bac (dossier Parcoursup, spécialités, moyennes générales). L'enjeu devient autant la performance que la capacité à tenir un rythme exigeant sur la durée.</p>
+          <h3>Tenir la distance</h3>
+          <ul>
+            <li><strong>Choisir des méthodes de travail actives</strong> : reformuler un cours avec ses propres mots, faire des fiches de synthèse, s'auto-interroger, plutôt que de simplement relire passivement.</li>
+            <li><strong>Répartir les révisions dans le temps</strong> (méthode de répétition espacée) plutôt que de tout revoir juste avant les évaluations, ce qui est beaucoup plus efficace pour la mémorisation à long terme.</li>
+            <li><strong>Suivre régulièrement ses notes et ses bulletins</strong> pour repérer tôt les matières qui décrochent et demander de l'aide avant que l'écart ne devienne trop important.</li>
+            <li><strong>Soigner la présentation des copies</strong> : une copie propre, bien structurée, avec une écriture lisible, influence réellement la perception du correcteur, à contenu équivalent.</li>
+            <li><strong>Préparer sérieusement l'orientation</strong> en se renseignant tôt sur les filières, en participant aux journées portes ouvertes et en discutant avec le conseiller d'orientation ou le professeur principal.</li>
+            <li><strong>Garder du temps de repos et de sommeil</strong> : sacrifier les nuits pour réviser est contre-productif, car la fatigue dégrade la mémorisation et la concentration en classe.</li>
+          </ul>
+        </section>
+
+        <section id="ecole-fac">
+          <span class="chapter-num">CHAPITRE 05</span>
+          <h2>À l'université et en fac</h2>
+          <p>L'université demande un niveau d'autonomie très différent du lycée : personne ne vérifie si les cours sont appris, personne ne relance en cas d'absence. La réussite dépend presque entièrement de l'organisation personnelle et de la capacité à se responsabiliser.</p>
+          <h3>S'adapter à l'autonomie</h3>
+          <ul>
+            <li><strong>Assister aux cours et travaux dirigés</strong> même quand ce n'est pas obligatoire : les explications orales apportent souvent une compréhension que les seuls supports écrits ne donnent pas.</li>
+            <li><strong>Se créer un planning de travail personnel</strong>, semaine par semaine, pour répartir la charge de travail et éviter l'accumulation avant les examens.</li>
+            <li><strong>Se constituer un petit groupe de travail</strong> avec d'autres étudiants motivés, pour comparer les notes de cours, s'entraider et rester régulier dans l'effort.</li>
+            <li><strong>Aller voir les enseignants pendant leurs permanences</strong> en cas de difficulté sur une notion : c'est souvent sous-utilisé alors que cela peut débloquer une incompréhension rapidement.</li>
+            <li><strong>Anticiper les démarches administratives</strong> (inscriptions, dossiers de bourse, choix d'options) plutôt que de les découvrir en urgence à la dernière minute.</li>
+            <li><strong>Trouver un équilibre avec la vie personnelle</strong> : sommeil, alimentation, activité physique et vie sociale restent des piliers de la réussite, pas des à-côtés secondaires.</li>
+          </ul>
+        </section>
+
+        <section id="ecole-profs">
+          <span class="chapter-num">CHAPITRE 06</span>
+          <h2>Bien s'entendre avec ses enseignants</h2>
+          <p>Au-delà des notes, la relation avec les enseignants influence réellement le vécu scolaire : un climat de confiance facilite l'apprentissage, l'aide en cas de difficulté et parfois même l'appréciation portée sur un dossier. Cette relation se construit par des attitudes simples, répétées dans le temps, à tous les niveaux scolaires.</p>
+          <h3>Ce qui fait une bonne impression</h3>
+          <ul>
+            <li><strong>Être ponctuel et régulier</strong> : arriver à l'heure et ne pas multiplier les absences non justifiées est l'un des signaux les plus visibles de sérieux pour un enseignant.</li>
+            <li><strong>Respecter les consignes et les délais</strong>, même quand elles semblent secondaires (format d'un rendu, date limite, matériel demandé) : cela montre de la fiabilité.</li>
+            <li><strong>Participer avec sincérité</strong> plutôt que de chercher à se faire remarquer artificiellement : une vraie question ou une remarque pertinente vaut mieux que des interventions pour la forme.</li>
+            <li><strong>Communiquer en cas de problème</strong> plutôt que de disparaître : prévenir d'une absence, expliquer un retard, signaler une difficulté de compréhension. Les enseignants réagissent en général bien à la transparence.</li>
+            <li><strong>Rester poli même en désaccord</strong> : il est possible de contester une note ou une remarque de façon argumentée et respectueuse, sans agressivité ni mauvaise foi.</li>
+            <li><strong>Montrer une progression</strong>, pas seulement un résultat : un enseignant valorise souvent les efforts visibles et l'évolution dans le temps, même quand le niveau de départ était bas.</li>
+            <li><strong>Dire merci et reconnaître l'aide reçue</strong>, par exemple après un accompagnement personnalisé ou une explication supplémentaire : ce sont de petits gestes qui construisent une relation de confiance durable.</li>
+          </ul>
+          <div class="callout">Une bonne relation avec un enseignant ne remplace jamais le travail personnel, mais elle peut faire une vraie différence dans les moments de doute, d'erreur ou de difficulté — c'est un capital de confiance qui se construit sur la durée, pas à la dernière minute.</div>
+        </section>
+      </article>
+    </div>
+  </section>
+
 </main>
 
 <footer class="foot"><span style="color:var(--warm2);">INTERFACE EN COURS DE CONSTRUCTION</span><br>CRÉATEUR LAB — STUDIO DE PRODUCTION DE CONTENU</footer>
@@ -1100,6 +1303,20 @@
   wireCopyArticle("copyAlgoBtn", "algoArticle");
   wireCopyArticle("copyViewsBtn", "viewsArticle");
   wireCopyArticle("copySanteBtn", "santeArticle");
+  wireCopyArticle("copyEcoleBtn", "ecoleArticle");
+
+  /* ============ SOMMAIRES (TOC) — défilement interne sans quitter le site ============ */
+  document.querySelectorAll(".toc a").forEach(function(link){
+    link.addEventListener("click", function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var id = link.getAttribute("href").replace("#", "");
+      var target = document.getElementById(id);
+      if(target){
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
 
   /* ============ EMPLOI DU TEMPS — planning privé (local à l'appareil) ============ */
   (function(){
