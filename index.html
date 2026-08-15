@@ -136,6 +136,7 @@
   .card.warm::before{background:var(--grad-warm);}
   .card.gold::before{background:linear-gradient(135deg,#3ddc84,var(--blue));}
   .card.plan::before{background:linear-gradient(135deg,#ff3d81,var(--violet));}
+  .card.sante::before{background:linear-gradient(135deg,var(--green),#22c1a8);}
   .card-icon{
     width:46px; height:46px; border-radius:13px; margin-bottom:20px;
     display:flex; align-items:center; justify-content:center;
@@ -144,10 +145,12 @@
   .card.warm .card-icon{background:rgba(255,107,74,0.12); border-color:rgba(255,107,74,0.28);}
   .card.gold .card-icon{background:rgba(61,220,132,0.12); border-color:rgba(61,220,132,0.28);}
   .card.plan .card-icon{background:rgba(255,61,129,0.12); border-color:rgba(255,61,129,0.28);}
+  .card.sante .card-icon{background:rgba(61,220,132,0.12); border-color:rgba(61,220,132,0.28);}
   .card-icon svg{width:22px; height:22px; stroke:var(--violet);}
   .card.warm .card-icon svg{stroke:var(--warm1);}
   .card.gold .card-icon svg{stroke:var(--green);}
   .card.plan .card-icon svg{stroke:var(--warm2);}
+  .card.sante .card-icon svg{stroke:var(--green);}
   .card h3{font-family:var(--font-display); font-size:19px; font-weight:600; margin:0 0 8px;}
   .card p{margin:0 0 20px; color:var(--text-muted); font-size:13.5px; line-height:1.55;}
   .card .go{
@@ -188,6 +191,8 @@
     font-family:var(--font-mono); font-size:12px; letter-spacing:.1em; color:var(--violet); margin-bottom:10px; display:block;
   }
   .view-views article.guide .chapter-num{color:var(--warm1);}
+  .view-sante article.guide .chapter-num{color:var(--green);}
+  .view-sante article.guide .callout{border-left-color:var(--green); background:rgba(61,220,132,0.06);}
   article.guide h2{
     font-family:var(--font-display); font-weight:600; font-size:25px; margin:0 0 16px; letter-spacing:-0.01em;
   }
@@ -361,6 +366,106 @@
     font-family:var(--font-mono); letter-spacing:.02em;
   }
 
+  /* ============ FOND ANIMÉ ============ */
+  .bg-animated{
+    position:fixed; inset:0; z-index:-1; overflow:hidden; pointer-events:none;
+  }
+  .bg-blob{
+    position:absolute; border-radius:50%; filter:blur(90px); will-change:transform;
+    opacity:0.55; mix-blend-mode:screen;
+  }
+  .bg-blob.b1{
+    width:620px; height:620px; top:-160px; left:-140px;
+    background:radial-gradient(circle at 30% 30%, rgba(124,92,252,0.55), transparent 70%);
+    animation:blobFloat1 26s ease-in-out infinite;
+  }
+  .bg-blob.b2{
+    width:520px; height:520px; top:10%; right:-160px;
+    background:radial-gradient(circle at 60% 40%, rgba(78,127,255,0.45), transparent 70%);
+    animation:blobFloat2 32s ease-in-out infinite;
+  }
+  .bg-blob.b3{
+    width:460px; height:460px; bottom:-140px; left:8%;
+    background:radial-gradient(circle at 50% 50%, rgba(255,61,129,0.30), transparent 70%);
+    animation:blobFloat3 30s ease-in-out infinite;
+  }
+  .bg-blob.b4{
+    width:400px; height:400px; bottom:5%; right:6%;
+    background:radial-gradient(circle at 50% 50%, rgba(61,220,132,0.22), transparent 70%);
+    animation:blobFloat4 36s ease-in-out infinite;
+  }
+  @keyframes blobFloat1{
+    0%,100%{ transform:translate(0,0) scale(1); }
+    33%{ transform:translate(60px,50px) scale(1.08); }
+    66%{ transform:translate(-30px,80px) scale(0.95); }
+  }
+  @keyframes blobFloat2{
+    0%,100%{ transform:translate(0,0) scale(1); }
+    33%{ transform:translate(-70px,60px) scale(1.05); }
+    66%{ transform:translate(40px,-40px) scale(0.92); }
+  }
+  @keyframes blobFloat3{
+    0%,100%{ transform:translate(0,0) scale(1); }
+    50%{ transform:translate(80px,-60px) scale(1.12); }
+  }
+  @keyframes blobFloat4{
+    0%,100%{ transform:translate(0,0) scale(1); }
+    50%{ transform:translate(-60px,-50px) scale(1.08); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .bg-blob{ animation:none; }
+  }
+
+  /* ============ ICÔNES FLOTTANTES ============ */
+  .bg-icon{
+    position:absolute; display:flex; align-items:center; justify-content:center;
+    border-radius:22px; will-change:transform; opacity:0.16;
+    background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06);
+    backdrop-filter:blur(2px);
+  }
+  .bg-icon svg{ width:56%; height:56%; stroke-width:1.6; }
+  .bg-icon.i-video{
+    width:120px; height:120px; top:14%; left:10%;
+    color:var(--violet); border-color:rgba(124,92,252,0.18);
+    animation:iconFloat1 62s linear infinite;
+  }
+  .bg-icon.i-dumbbell{
+    width:104px; height:104px; top:52%; right:14%;
+    color:var(--green); border-color:rgba(61,220,132,0.18);
+    animation:iconFloat2 74s linear infinite;
+  }
+  .bg-icon.i-calendar{
+    width:96px; height:96px; bottom:16%; left:18%;
+    color:var(--warm2); border-color:rgba(255,61,129,0.18);
+    animation:iconFloat3 68s linear infinite;
+  }
+  @keyframes iconFloat1{
+    0%{ transform:translate(0,0) rotate(0deg); }
+    20%{ transform:translate(38vw,10vh) rotate(8deg); }
+    40%{ transform:translate(22vw,45vh) rotate(-6deg); }
+    60%{ transform:translate(-18vw,52vh) rotate(5deg); }
+    80%{ transform:translate(-28vw,14vh) rotate(-7deg); }
+    100%{ transform:translate(0,0) rotate(0deg); }
+  }
+  @keyframes iconFloat2{
+    0%{ transform:translate(0,0) rotate(0deg); }
+    22%{ transform:translate(-34vw,-22vh) rotate(-8deg); }
+    46%{ transform:translate(-14vw,-46vh) rotate(6deg); }
+    68%{ transform:translate(20vw,-30vh) rotate(-5deg); }
+    86%{ transform:translate(16vw,-6vh) rotate(4deg); }
+    100%{ transform:translate(0,0) rotate(0deg); }
+  }
+  @keyframes iconFloat3{
+    0%{ transform:translate(0,0) rotate(0deg); }
+    25%{ transform:translate(28vw,-24vh) rotate(6deg); }
+    50%{ transform:translate(44vw,4vh) rotate(-5deg); }
+    75%{ transform:translate(16vw,26vh) rotate(7deg); }
+    100%{ transform:translate(0,0) rotate(0deg); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .bg-icon{ animation:none; }
+  }
+
   @media (max-width: 680px){
     header.top{padding:14px 18px;}
     .wrap, .wrap-narrow, .wrap-wide{padding:0 18px 70px;}
@@ -368,10 +473,38 @@
     .tool-header{padding:16px 18px;}
     .resource-card{ flex-wrap:wrap; }
     .resource-go{ margin-left:62px; }
+    .bg-blob{ filter:blur(60px); opacity:0.4; }
+    .bg-blob.b1{ width:340px; height:340px; }
+    .bg-blob.b2{ width:300px; height:300px; }
+    .bg-blob.b3{ width:280px; height:280px; }
+    .bg-blob.b4{ width:240px; height:240px; }
+    .bg-icon{ opacity:0.12; }
+    .bg-icon.i-video{ width:78px; height:78px; }
+    .bg-icon.i-dumbbell{ width:70px; height:70px; }
+    .bg-icon.i-calendar{ width:64px; height:64px; }
   }
 </style>
 </head>
 <body>
+
+<div class="bg-animated" aria-hidden="true">
+  <div class="bg-blob b1"></div>
+  <div class="bg-blob b2"></div>
+  <div class="bg-blob b3"></div>
+  <div class="bg-blob b4"></div>
+
+  <div class="bg-icon i-video">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="15" height="14" rx="3"/><polygon points="16 9 22 6 22 18 16 15" stroke-linejoin="round"/></svg>
+  </div>
+
+  <div class="bg-icon i-dumbbell">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg>
+  </div>
+
+  <div class="bg-icon i-calendar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+  </div>
+</div>
 
 <header class="top">
   <div class="logo">
@@ -442,6 +575,13 @@
           <h3>Mes outils</h3>
           <p>Les sites que j'utilise pour ma chaîne : bruitages, musique libre de droits et téléchargement audio.</p>
           <span class="go">Voir la liste <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </button>
+
+        <button class="card sante btn-sound" data-view="sante" type="button">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/></svg></div>
+          <h3>Prendre soin de son corps</h3>
+          <p>Le guide complet pour bien manger, bien t'hydrater, bien dormir, protéger ton dos et bouger assez — pour tenir sur la durée.</p>
+          <span class="go">Ouvrir le guide <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </button>
       </div>
     </div>
@@ -746,6 +886,123 @@
     </div>
   </section>
 
+  <!-- ============ PRENDRE SOIN DE SON CORPS ============ -->
+  <section class="view view-sante" id="view-sante">
+    <div class="tool-header">
+      <button class="back-btn btn-sound" data-back type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Retour à l'accueil
+      </button>
+      <div class="tool-title-wrap">
+        <span class="tool-title">Prendre soin de son corps</span>
+      </div>
+    </div>
+    <div class="wrap-narrow">
+      <p class="tool-lead">Le guide de référence pour construire de bonnes habitudes durables : alimentation, hydratation, sommeil, posture et activité physique. Pas de régime, pas de chiffres à respecter au gramme près — juste les grands repères qui font une vraie différence sur le long terme.</p>
+
+      <div class="callout" style="margin:0 0 30px; border-left:3px solid var(--green); background:rgba(61,220,132,0.06); border-radius:0 12px 12px 0; padding:14px 18px; font-size:14px; color:#c9c6d6; line-height:1.7;">Ce guide donne des repères généraux de santé publique, pas un avis médical personnalisé. En cas de doute, de douleur persistante, ou de question sur ton propre corps, parles-en à un médecin, un·e infirmier·e scolaire ou un adulte de confiance — c'est toujours la meilleure source.</div>
+
+      <button class="copy-article-btn btn-sound" id="copySanteBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copier tout le guide
+      </button>
+
+      <nav class="toc">
+        <a href="#sante-alimentation">Alimentation</a>
+        <a href="#sante-hydratation">Hydratation</a>
+        <a href="#sante-sommeil">Sommeil</a>
+        <a href="#sante-dos">Dos et posture</a>
+        <a href="#sante-activite">Activité physique</a>
+        <a href="#sante-ecrans">Écrans et équilibre</a>
+      </nav>
+
+      <article class="guide" id="santeArticle">
+        <section id="sante-alimentation">
+          <span class="chapter-num">CHAPITRE 01</span>
+          <h2>Bien manger, sans se compliquer la vie</h2>
+          <p>Bien manger n'est pas une question de privation ni de règles strictes : c'est une question d'équilibre répété jour après jour. Le corps se construit et se répare avec ce qu'on lui apporte, en particulier pendant l'adolescence où les besoins sont plus importants que jamais.</p>
+          <h3>Les grands repères</h3>
+          <ul>
+            <li><strong>Varier les groupes d'aliments.</strong> Une assiette équilibrée mélange en général des légumes ou fruits, une source de protéines (viande, poisson, œufs, légumineuses), des féculents (riz, pâtes, pain, pommes de terre) et un peu de matière grasse de qualité (huile d'olive, oléagineux).</li>
+            <li><strong>Ne pas sauter de repas</strong>, en particulier le petit-déjeuner : le corps et le cerveau ont besoin d'un apport régulier d'énergie pour fonctionner correctement toute la journée, surtout en période scolaire ou lors de journées de tournage.</li>
+            <li><strong>Manger des fruits et légumes chaque jour</strong>, frais, surgelés ou en conserve : ils apportent des fibres, des vitamines et des minéraux essentiels à la croissance et à l'énergie du quotidien.</li>
+            <li><strong>Limiter les aliments très transformés et le grignotage sucré</strong> sans pour autant les bannir complètement : l'équilibre se construit sur la semaine, pas sur un seul repas ou une seule journée.</li>
+            <li><strong>Manger à un rythme calme</strong>, si possible assis et sans écran, pour mieux ressentir la faim et la satiété plutôt que de manger machinalement devant une vidéo.</li>
+          </ul>
+          <div class="callout">Il n'existe pas d'aliment magique ni d'aliment totalement interdit. Ce qui compte, c'est la régularité des bonnes habitudes sur la durée, pas la perfection à chaque repas.</div>
+        </section>
+
+        <section id="sante-hydratation">
+          <span class="chapter-num">CHAPITRE 02</span>
+          <h2>S'hydrater tout au long de la journée</h2>
+          <p>L'eau est impliquée dans presque toutes les fonctions du corps : la concentration, la digestion, la régulation de la température et même l'humeur. Une hydratation insuffisante se traduit souvent par de la fatigue ou des maux de tête avant même d'avoir soif.</p>
+          <h3>Bonnes habitudes</h3>
+          <ul>
+            <li><strong>Boire régulièrement dans la journée</strong> plutôt que de grandes quantités d'un coup, en gardant une bouteille d'eau à portée de main pendant le travail, les cours ou le montage vidéo.</li>
+            <li><strong>Privilégier l'eau</strong> comme boisson principale, en gardant les boissons sucrées ou énergisantes pour des occasions ponctuelles plutôt que pour une consommation quotidienne.</li>
+            <li><strong>Boire davantage en cas d'activité physique, de chaleur ou de fièvre</strong>, car les besoins augmentent avec la transpiration et l'effort.</li>
+            <li><strong>Observer la couleur de ses urines</strong> reste l'un des indicateurs les plus simples : une couleur claire indique généralement une bonne hydratation, une couleur foncée signale qu'il faut boire davantage.</li>
+          </ul>
+        </section>
+
+        <section id="sante-sommeil">
+          <span class="chapter-num">CHAPITRE 03</span>
+          <h2>Dormir suffisamment pour récupérer</h2>
+          <p>Le sommeil n'est pas du temps perdu : c'est pendant la nuit que le corps grandit, que le cerveau consolide ce qu'il a appris, et que le système immunitaire se renforce. Un manque de sommeil régulier affecte la concentration, l'humeur et même la capacité à créer du contenu de qualité.</p>
+          <h3>Ce qui aide à bien dormir</h3>
+          <ul>
+            <li><strong>Garder des horaires réguliers</strong>, y compris le week-end, pour stabiliser l'horloge interne du corps.</li>
+            <li><strong>Réduire les écrans avant le coucher</strong>, idéalement trente à soixante minutes avant de dormir : la lumière bleue et le contenu stimulant retardent l'endormissement.</li>
+            <li><strong>Créer une routine calme le soir</strong> : lecture, musique douce, étirements légers, plutôt qu'un enchaînement de vidéos ou de notifications jusqu'à la dernière minute.</li>
+            <li><strong>Éviter les boissons excitantes en fin de journée</strong> comme le café, le thé fort ou les boissons énergisantes, qui retardent l'endormissement même plusieurs heures après leur consommation.</li>
+            <li><strong>Adapter la durée de sommeil à son âge</strong> : les adolescents ont généralement besoin de plus d'heures de sommeil que les adultes pour bien récupérer, même si le rythme de vie pousse parfois à se coucher tard.</li>
+          </ul>
+        </section>
+
+        <section id="sante-dos">
+          <span class="chapter-num">CHAPITRE 04</span>
+          <h2>Protéger son dos et sa posture</h2>
+          <p>Entre les heures passées assis pour le montage, les cours, le téléphone ou les jeux vidéo, le dos et la nuque sont particulièrement sollicités. Une mauvaise posture répétée pendant des années peut créer des tensions durables, alors que quelques ajustements simples suffisent à limiter les dégâts.</p>
+          <h3>Réflexes à prendre</h3>
+          <ul>
+            <li><strong>Adapter son poste de travail :</strong> écran à hauteur des yeux, dos droit contre le dossier, pieds à plat au sol, avant-bras posés à hauteur du bureau plutôt que les épaules relevées.</li>
+            <li><strong>Éviter de rester penché sur le téléphone</strong> pendant de longues périodes : cette position accentue fortement la charge sur la nuque et les cervicales.</li>
+            <li><strong>Se lever et bouger régulièrement</strong>, idéalement toutes les heures pendant les longues sessions de montage ou de travail, même pour deux ou trois minutes de marche ou d'étirement.</li>
+            <li><strong>Renforcer les muscles du dos et du ventre</strong> avec des exercices simples et réguliers : gainage, étirements du dos, exercices de mobilité, qui soutiennent la colonne vertébrale au quotidien.</li>
+            <li><strong>Porter les sacs et charges de façon équilibrée</strong>, sur les deux épaules plutôt qu'un seul côté, pour ne pas déséquilibrer la posture sur la durée.</li>
+          </ul>
+          <div class="callout">Une douleur de dos qui persiste plusieurs jours, qui s'aggrave, ou qui s'accompagne d'autres symptômes n'est jamais à ignorer : c'est le moment d'en parler à un médecin, pas de continuer à forcer.</div>
+        </section>
+
+        <section id="sante-activite">
+          <span class="chapter-num">CHAPITRE 05</span>
+          <h2>Bouger suffisamment au quotidien</h2>
+          <p>L'activité physique régulière n'est pas réservée aux sportifs : elle améliore la concentration, l'humeur, le sommeil et la santé du cœur et des os, en plus de contrebalancer le temps passé assis devant un écran.</p>
+          <h3>Comment intégrer le mouvement</h3>
+          <ul>
+            <li><strong>Privilégier une activité qui plaît réellement</strong> : sport collectif, danse, vélo, marche rapide, musculation légère. La régularité compte plus que l'intensité d'une seule séance.</li>
+            <li><strong>Profiter des déplacements du quotidien</strong> pour bouger davantage : marcher ou faire du vélo plutôt que d'être systématiquement en voiture quand c'est possible.</li>
+            <li><strong>Alterner position assise et position debout ou en mouvement</strong> pendant les longues sessions de travail, pour éviter de rester statique pendant des heures d'affilée.</li>
+            <li><strong>Écouter les signaux du corps</strong> : la fatigue et les douleurs sont des signaux à respecter, pas des obstacles à ignorer à tout prix.</li>
+          </ul>
+        </section>
+
+        <section id="sante-ecrans">
+          <span class="chapter-num">CHAPITRE 06</span>
+          <h2>Garder un équilibre avec les écrans</h2>
+          <p>Créer du contenu implique forcément beaucoup de temps d'écran : tournage, montage, réseaux sociaux, veille. Ce n'est pas un problème en soi, mais un équilibre reste nécessaire pour préserver les yeux, le sommeil et la santé mentale sur la durée.</p>
+          <h3>Quelques repères simples</h3>
+          <ul>
+            <li><strong>Faire des pauses régulières pour les yeux</strong>, par exemple en regardant un point éloigné toutes les vingt minutes, pour limiter la fatigue visuelle liée aux écrans.</li>
+            <li><strong>Distinguer le temps d'écran productif du temps d'écran passif</strong> : monter une vidéo n'a pas le même effet sur l'énergie et le moral qu'un défilement sans fin de contenus.</li>
+            <li><strong>Garder des moments sans écran</strong> dans la journée, notamment lors des repas et avant le coucher, pour laisser au corps et à l'esprit un vrai temps de repos.</li>
+            <li><strong>Rester attentif à son propre ressenti</strong> : si les écrans commencent à affecter l'humeur, le sommeil ou les relations avec les proches, c'est un bon moment pour en parler à quelqu'un de confiance et ajuster ses habitudes.</li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </section>
+
 </main>
 
 <footer class="foot"><span style="color:var(--warm2);">INTERFACE EN COURS DE CONSTRUCTION</span><br>CRÉATEUR LAB — STUDIO DE PRODUCTION DE CONTENU</footer>
@@ -842,6 +1099,7 @@
   }
   wireCopyArticle("copyAlgoBtn", "algoArticle");
   wireCopyArticle("copyViewsBtn", "viewsArticle");
+  wireCopyArticle("copySanteBtn", "santeArticle");
 
   /* ============ EMPLOI DU TEMPS — planning privé (local à l'appareil) ============ */
   (function(){
