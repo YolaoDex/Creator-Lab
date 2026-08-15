@@ -429,90 +429,123 @@
     backdrop-filter:blur(2px);
   }
   .bg-icon svg{ width:56%; height:56%; stroke-width:1.6; }
+  /* Chaque icône a sa propre zone du viewport, bien espacée des autres,
+     et orbite localement autour de sa position sans jamais en sortir. */
   .bg-icon.i-video{
-    width:120px; height:120px; top:14%; left:10%;
+    width:112px; height:112px; top:8%; left:8%;
     color:var(--violet); border-color:rgba(124,92,252,0.18);
-    animation:iconFloat1 62s linear infinite;
-  }
-  .bg-icon.i-dumbbell{
-    width:104px; height:104px; top:52%; right:14%;
-    color:var(--green); border-color:rgba(61,220,132,0.18);
-    animation:iconFloat2 74s linear infinite;
-  }
-  .bg-icon.i-calendar{
-    width:96px; height:96px; bottom:16%; left:18%;
-    color:var(--warm2); border-color:rgba(255,61,129,0.18);
-    animation:iconFloat3 68s linear infinite;
+    animation:iconOrbit1 34s linear infinite;
   }
   .bg-icon.i-pen{
-    width:92px; height:92px; top:8%; right:22%;
+    width:88px; height:88px; top:9%; left:70%;
     color:var(--violet); border-color:rgba(124,92,252,0.18);
-    animation:iconFloat4 70s linear infinite;
-  }
-  .bg-icon.i-eye{
-    width:100px; height:100px; top:36%; left:2%;
-    color:var(--warm1); border-color:rgba(255,107,74,0.18);
-    animation:iconFloat5 78s linear infinite;
-  }
-  .bg-icon.i-link{
-    width:88px; height:88px; bottom:6%; right:24%;
-    color:var(--green); border-color:rgba(61,220,132,0.18);
-    animation:iconFloat6 66s linear infinite;
+    animation:iconOrbit2 38s linear infinite;
   }
   .bg-icon.i-cap{
-    width:100px; height:100px; top:70%; left:38%;
+    width:96px; height:96px; top:32%; left:38%;
     color:#ffb84d; border-color:rgba(255,184,77,0.18);
-    animation:iconFloat7 72s linear infinite;
+    animation:iconOrbit3 41s linear infinite;
   }
-  @keyframes iconFloat1{
+  .bg-icon.i-eye{
+    width:96px; height:96px; top:38%; left:2%;
+    color:var(--warm1); border-color:rgba(255,107,74,0.18);
+    animation:iconOrbit4 36s linear infinite;
+  }
+  .bg-icon.i-dumbbell{
+    width:100px; height:100px; top:38%; left:80%;
+    color:var(--green); border-color:rgba(61,220,132,0.18);
+    animation:iconOrbit5 39s linear infinite;
+  }
+  .bg-icon.i-calendar{
+    width:92px; height:92px; top:70%; left:12%;
+    color:var(--warm2); border-color:rgba(255,61,129,0.18);
+    animation:iconOrbit6 35s linear infinite;
+  }
+  .bg-icon.i-link{
+    width:84px; height:84px; top:72%; left:64%;
+    color:var(--green); border-color:rgba(61,220,132,0.18);
+    animation:iconOrbit7 40s linear infinite;
+  }
+  /* Trajectoires à vitesse constante (linear) avec de nombreux points de
+     passage irréguliers : le mouvement paraît aléatoire et ne s'arrête
+     jamais, tout en restant dans la zone propre à chaque icône. */
+  @keyframes iconOrbit1{
     0%{ transform:translate(0,0) rotate(0deg); }
-    20%{ transform:translate(38vw,10vh) rotate(8deg); }
-    40%{ transform:translate(22vw,45vh) rotate(-6deg); }
-    60%{ transform:translate(-18vw,52vh) rotate(5deg); }
-    80%{ transform:translate(-28vw,14vh) rotate(-7deg); }
+    9%{ transform:translate(4vw,3vh) rotate(3deg); }
+    19%{ transform:translate(7vw,1vh) rotate(6deg); }
+    31%{ transform:translate(6vw,6vh) rotate(2deg); }
+    44%{ transform:translate(2vw,9vh) rotate(-4deg); }
+    58%{ transform:translate(-3vw,7vh) rotate(-6deg); }
+    69%{ transform:translate(-6vw,3vh) rotate(-2deg); }
+    81%{ transform:translate(-4vw,-2vh) rotate(4deg); }
+    93%{ transform:translate(-1vw,-3vh) rotate(1deg); }
     100%{ transform:translate(0,0) rotate(0deg); }
   }
-  @keyframes iconFloat2{
+  @keyframes iconOrbit2{
     0%{ transform:translate(0,0) rotate(0deg); }
-    22%{ transform:translate(-34vw,-22vh) rotate(-8deg); }
-    46%{ transform:translate(-14vw,-46vh) rotate(6deg); }
-    68%{ transform:translate(20vw,-30vh) rotate(-5deg); }
-    86%{ transform:translate(16vw,-6vh) rotate(4deg); }
+    11%{ transform:translate(-4vw,4vh) rotate(-3deg); }
+    23%{ transform:translate(-7vw,2vh) rotate(-6deg); }
+    35%{ transform:translate(-9vw,-2vh) rotate(-2deg); }
+    47%{ transform:translate(-6vw,-6vh) rotate(4deg); }
+    60%{ transform:translate(-2vw,-7vh) rotate(6deg); }
+    72%{ transform:translate(2vw,-4vh) rotate(2deg); }
+    85%{ transform:translate(3vw,-1vh) rotate(-3deg); }
     100%{ transform:translate(0,0) rotate(0deg); }
   }
-  @keyframes iconFloat3{
+  @keyframes iconOrbit3{
     0%{ transform:translate(0,0) rotate(0deg); }
-    25%{ transform:translate(28vw,-24vh) rotate(6deg); }
-    50%{ transform:translate(44vw,4vh) rotate(-5deg); }
-    75%{ transform:translate(16vw,26vh) rotate(7deg); }
+    10%{ transform:translate(4vw,-3vh) rotate(3deg); }
+    22%{ transform:translate(6vw,-6vh) rotate(5deg); }
+    33%{ transform:translate(3vw,-9vh) rotate(1deg); }
+    46%{ transform:translate(-4vw,-9vh) rotate(-5deg); }
+    59%{ transform:translate(-7vw,-4vh) rotate(-6deg); }
+    71%{ transform:translate(-7vw,4vh) rotate(-2deg); }
+    83%{ transform:translate(-2vw,6vh) rotate(4deg); }
+    94%{ transform:translate(2vw,2vh) rotate(2deg); }
     100%{ transform:translate(0,0) rotate(0deg); }
   }
-  @keyframes iconFloat4{
+  @keyframes iconOrbit4{
     0%{ transform:translate(0,0) rotate(0deg); }
-    30%{ transform:translate(-30vw,30vh) rotate(-6deg); }
-    55%{ transform:translate(-48vw,8vh) rotate(5deg); }
-    80%{ transform:translate(-20vw,-14vh) rotate(-4deg); }
+    12%{ transform:translate(3vw,5vh) rotate(-3deg); }
+    24%{ transform:translate(6vw,7vh) rotate(-6deg); }
+    37%{ transform:translate(9vw,3vh) rotate(-2deg); }
+    50%{ transform:translate(9vw,-2vh) rotate(4deg); }
+    62%{ transform:translate(6vw,-6vh) rotate(6deg); }
+    74%{ transform:translate(3vw,-8vh) rotate(-5deg); }
+    87%{ transform:translate(-1vw,-4vh) rotate(-2deg); }
     100%{ transform:translate(0,0) rotate(0deg); }
   }
-  @keyframes iconFloat5{
+  @keyframes iconOrbit5{
     0%{ transform:translate(0,0) rotate(0deg); }
-    24%{ transform:translate(30vw,20vh) rotate(7deg); }
-    48%{ transform:translate(50vw,-10vh) rotate(-6deg); }
-    72%{ transform:translate(24vw,-34vh) rotate(4deg); }
+    9%{ transform:translate(-3vw,-3vh) rotate(3deg); }
+    21%{ transform:translate(-7vw,-5vh) rotate(6deg); }
+    34%{ transform:translate(-8vw,-1vh) rotate(2deg); }
+    48%{ transform:translate(-3vw,8vh) rotate(-5deg); }
+    61%{ transform:translate(2vw,8vh) rotate(-6deg); }
+    73%{ transform:translate(5vw,4vh) rotate(5deg); }
+    86%{ transform:translate(4vw,0vh) rotate(2deg); }
     100%{ transform:translate(0,0) rotate(0deg); }
   }
-  @keyframes iconFloat6{
+  @keyframes iconOrbit6{
     0%{ transform:translate(0,0) rotate(0deg); }
-    28%{ transform:translate(-24vw,-26vh) rotate(-5deg); }
-    52%{ transform:translate(-6vw,-48vh) rotate(6deg); }
-    76%{ transform:translate(18vw,-20vh) rotate(-7deg); }
+    10%{ transform:translate(4vw,-2vh) rotate(-3deg); }
+    23%{ transform:translate(7vw,-4vh) rotate(-5deg); }
+    36%{ transform:translate(6vw,-7vh) rotate(-1deg); }
+    49%{ transform:translate(4vw,-8vh) rotate(6deg); }
+    63%{ transform:translate(-1vw,-5vh) rotate(3deg); }
+    76%{ transform:translate(-5vw,-3vh) rotate(-4deg); }
+    89%{ transform:translate(-3vw,1vh) rotate(-1deg); }
     100%{ transform:translate(0,0) rotate(0deg); }
   }
-  @keyframes iconFloat7{
+  @keyframes iconOrbit7{
     0%{ transform:translate(0,0) rotate(0deg); }
-    26%{ transform:translate(-22vw,18vh) rotate(6deg); }
-    50%{ transform:translate(-40vw,-6vh) rotate(-5deg); }
-    74%{ transform:translate(-14vw,-28vh) rotate(7deg); }
+    11%{ transform:translate(-3vw,-3vh) rotate(3deg); }
+    24%{ transform:translate(-6vw,-5vh) rotate(5deg); }
+    37%{ transform:translate(-4vw,-8vh) rotate(1deg); }
+    51%{ transform:translate(3vw,-8vh) rotate(-6deg); }
+    64%{ transform:translate(6vw,-4vh) rotate(-4deg); }
+    77%{ transform:translate(6vw,-2vh) rotate(4deg); }
+    90%{ transform:translate(3vw,1vh) rotate(1deg); }
     100%{ transform:translate(0,0) rotate(0deg); }
   }
   @media (prefers-reduced-motion: reduce){
@@ -532,12 +565,12 @@
     .bg-blob.b3{ width:280px; height:280px; }
     .bg-blob.b4{ width:240px; height:240px; }
     .bg-icon{ opacity:0.12; }
-    .bg-icon.i-video{ width:78px; height:78px; }
-    .bg-icon.i-dumbbell{ width:70px; height:70px; }
-    .bg-icon.i-calendar{ width:64px; height:64px; }
-    .bg-icon.i-pen{ width:60px; height:60px; }
-    .bg-icon.i-eye{ width:66px; height:66px; }
-    .bg-icon.i-link{ width:58px; height:58px; }
+    .bg-icon.i-video{ width:74px; height:74px; }
+    .bg-icon.i-dumbbell{ width:68px; height:68px; }
+    .bg-icon.i-calendar{ width:62px; height:62px; }
+    .bg-icon.i-pen{ width:58px; height:58px; }
+    .bg-icon.i-eye{ width:64px; height:64px; }
+    .bg-icon.i-link{ width:56px; height:56px; }
     .bg-icon.i-cap{ width:66px; height:66px; }
   }
 </style>
