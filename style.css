@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,6 +18,13 @@
     --text:#f4f2f8;
     --text-muted:#8f8c9c;
     --text-dim:#5e5c68;
+    --text-soft:#d9d7e2;
+    --text-soft2:#c9c6d6;
+    --header-bg:rgba(8,8,12,0.72);
+    --header-bg-strong:rgba(8,8,12,0.85);
+    --icon-tile-bg:rgba(255,255,255,0.03);
+    --icon-tile-border:rgba(255,255,255,0.06);
+    --badge-bg:#0a0a10;
     --violet:#7c5cfc;
     --blue:#4e7fff;
     --warm1:#ff6b4a;
@@ -28,6 +36,23 @@
     --font-display:'Space Grotesk', sans-serif;
     --font-body:'Inter', sans-serif;
     --font-mono:'JetBrains Mono', monospace;
+  }
+  [data-theme="light"]{
+    --bg:#f6f5fa;
+    --bg-panel:#ffffff;
+    --bg-panel-alt:#f1eff8;
+    --border:rgba(20,18,35,0.09);
+    --border-strong:rgba(20,18,35,0.18);
+    --text:#17151f;
+    --text-muted:#615d6d;
+    --text-dim:#8d899a;
+    --text-soft:#312e3c;
+    --text-soft2:#413d4d;
+    --header-bg:rgba(255,255,255,0.78);
+    --header-bg-strong:rgba(255,255,255,0.9);
+    --icon-tile-bg:rgba(20,18,35,0.03);
+    --icon-tile-border:rgba(20,18,35,0.08);
+    --badge-bg:#12101c;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
@@ -51,7 +76,7 @@
     position:fixed; top:0; left:0; right:0; z-index:100;
     display:flex; align-items:center; justify-content:space-between;
     padding:16px 32px;
-    background:rgba(8,8,12,0.72);
+    background:var(--header-bg);
     backdrop-filter:blur(14px);
     -webkit-backdrop-filter:blur(14px);
     border-bottom:1px solid var(--border);
@@ -62,7 +87,7 @@
   }
   .logo-mark{
     width:34px; height:34px; border-radius:9px;
-    background:#0a0a10;
+    background:var(--badge-bg);
     display:flex; align-items:center; justify-content:center;
     position:relative; overflow:hidden;
     box-shadow:0 0 0 1px var(--border-strong), 0 4px 18px rgba(124,92,252,0.35);
@@ -171,7 +196,7 @@
   .card:hover .go svg{transform:translateX(4px);}
 
   .tool-header{
-    position:sticky; top:73px; z-index:20; background:rgba(8,8,12,0.85); backdrop-filter:blur(10px);
+    position:sticky; top:73px; z-index:20; background:var(--header-bg-strong); backdrop-filter:blur(10px);
     border-bottom:1px solid var(--border); margin:0 0 34px; padding:20px 32px;
     display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;
   }
@@ -209,16 +234,16 @@
   article.guide h2{
     font-family:var(--font-display); font-weight:600; font-size:25px; margin:0 0 16px; letter-spacing:-0.01em;
   }
-  article.guide p{font-size:15px; line-height:1.8; color:#d9d7e2; margin:0 0 16px;}
+  article.guide p{font-size:15px; line-height:1.8; color:var(--text-soft); margin:0 0 16px;}
   article.guide h3{
     font-family:var(--font-display); font-weight:600; font-size:16.5px; margin:26px 0 10px; color:var(--text);
   }
   article.guide ul{margin:0 0 16px; padding-left:20px;}
-  article.guide li{font-size:14.5px; line-height:1.75; color:#d9d7e2; margin-bottom:8px;}
+  article.guide li{font-size:14.5px; line-height:1.75; color:var(--text-soft); margin-bottom:8px;}
   article.guide li strong{color:var(--text); font-weight:600;}
   article.guide .callout{
     border-left:3px solid var(--violet); background:rgba(124,92,252,0.06);
-    padding:14px 18px; border-radius:0 12px 12px 0; margin:20px 0; font-size:14px; color:#c9c6d6; line-height:1.7;
+    padding:14px 18px; border-radius:0 12px 12px 0; margin:20px 0; font-size:14px; color:var(--text-soft2); line-height:1.7;
   }
   .view-views article.guide .callout{border-left-color:var(--warm1); background:rgba(255,107,74,0.06);}
   .guide-divider{height:1px; background:var(--border); margin:0 0 52px;}
@@ -285,7 +310,7 @@
     border-radius:14px; padding:16px 18px; margin:0 0 30px;
   }
   .plan-privacy svg{ flex:none; width:20px; height:20px; stroke:var(--warm2); margin-top:1px; }
-  .plan-privacy p{ margin:0; font-size:13.5px; line-height:1.6; color:#d9d7e2; }
+  .plan-privacy p{ margin:0; font-size:13.5px; line-height:1.6; color:var(--text-soft); }
   .plan-privacy strong{ color:var(--text); }
 
   .plan-toolbar{
@@ -350,7 +375,7 @@
   }
   .welcome-mark{
     width:128px; height:128px; border-radius:32px; margin-bottom:30px;
-    background:#0a0a10; display:flex; align-items:center; justify-content:center; overflow:hidden;
+    background:var(--badge-bg); display:flex; align-items:center; justify-content:center; overflow:hidden;
     box-shadow:0 0 0 1px var(--border-strong), 0 10px 34px rgba(124,92,252,0.4);
     animation:welcomeFloat 3.4s ease-in-out infinite;
   }
@@ -444,7 +469,7 @@
   .bg-icon{
     position:absolute; display:flex; align-items:center; justify-content:center;
     border-radius:22px; will-change:transform; opacity:0.16;
-    background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06);
+    background:var(--icon-tile-bg); border:1px solid var(--icon-tile-border);
     backdrop-filter:blur(2px);
   }
   .bg-icon svg{ width:56%; height:56%; stroke-width:1.6; }
@@ -704,6 +729,10 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       <span>Guide</span>
     </button>
+    <div class="sound-toggle" id="themeToggle" title="Basculer entre thème clair et sombre" role="button" tabindex="0" aria-label="Basculer entre thème clair et sombre">
+      <svg id="themeIconDark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+      <svg id="themeIconLight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>
+    </div>
     <div class="sound-toggle" id="soundToggle" title="Activer ou couper le son" role="button" tabindex="0" aria-label="Activer ou couper le son">
       <svg id="soundIconOn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
       <svg id="soundIconOff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
@@ -1115,7 +1144,7 @@
     <div class="wrap-narrow">
       <p class="tool-lead">Le guide de référence pour construire de bonnes habitudes durables : alimentation, hydratation, sommeil, posture et activité physique. Pas de régime, pas de chiffres à respecter au gramme près — juste les grands repères qui font une vraie différence sur le long terme.</p>
 
-      <div class="callout" style="margin:0 0 30px; border-left:3px solid var(--green); background:rgba(61,220,132,0.06); border-radius:0 12px 12px 0; padding:14px 18px; font-size:14px; color:#c9c6d6; line-height:1.7;">Ce guide donne des repères généraux de santé publique, pas un avis médical personnalisé. En cas de doute, de douleur persistante, ou de question sur ton propre corps, parles-en à un médecin, un·e infirmier·e scolaire ou un adulte de confiance — c'est toujours la meilleure source.</div>
+      <div class="callout" style="margin:0 0 30px; border-left:3px solid var(--green); background:rgba(61,220,132,0.06); border-radius:0 12px 12px 0; padding:14px 18px; font-size:14px; color:var(--text-soft2); line-height:1.7;">Ce guide donne des repères généraux de santé publique, pas un avis médical personnalisé. En cas de doute, de douleur persistante, ou de question sur ton propre corps, parles-en à un médecin, un·e infirmier·e scolaire ou un adulte de confiance — c'est toujours la meilleure source.</div>
 
       <button class="copy-article-btn btn-sound" id="copySanteBtn" type="button">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -1421,6 +1450,46 @@
   soundToggle.addEventListener("keydown", function(e){
     if(e.key === "Enter" || e.key === " "){ e.preventDefault(); toggleMute(); }
   });
+
+  /* ============ THÈME CLAIR / SOMBRE ============ */
+  (function(){
+    var THEME_KEY = "createurlab_theme_v1";
+    var toggle = document.getElementById("themeToggle");
+    var iconDark = document.getElementById("themeIconDark");
+    var iconLight = document.getElementById("themeIconLight");
+    if(!toggle) return;
+
+    function applyTheme(theme){
+      if(theme === "light"){
+        document.documentElement.setAttribute("data-theme", "light");
+        iconDark.style.display = "none";
+        iconLight.style.display = "block";
+      } else {
+        document.documentElement.removeAttribute("data-theme");
+        iconDark.style.display = "block";
+        iconLight.style.display = "none";
+      }
+    }
+
+    var saved = null;
+    try{ saved = window.localStorage.getItem(THEME_KEY); }catch(e){ saved = null; }
+    if(!saved){
+      saved = (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) ? "light" : "dark";
+    }
+    applyTheme(saved);
+
+    function toggleTheme(){
+      var isLight = document.documentElement.getAttribute("data-theme") === "light";
+      var next = isLight ? "dark" : "light";
+      applyTheme(next);
+      try{ window.localStorage.setItem(THEME_KEY, next); }catch(e){}
+    }
+
+    toggle.addEventListener("click", toggleTheme);
+    toggle.addEventListener("keydown", function(e){
+      if(e.key === "Enter" || e.key === " "){ e.preventDefault(); toggleTheme(); }
+    });
+  })();
 
   var current = document.getElementById("view-welcome");
   function showView(id){
